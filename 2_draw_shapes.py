@@ -16,6 +16,7 @@ cyd_telearn.clear_screen()
 # cyd_telearn.draw_triangle(50, 220, 20, 260, 80, 260, cyd_telearn.colors["PINK"])
 # cyd_telearn.fill_triangle(150, 220, 120, 260, 180, 260, cyd_telearn.colors["ORANGE"])
 
+# 繪製和填充星形
 cyd_telearn.draw_star(20, 20, 15, cyd_telearn.colors["BLUE"])
 cyd_telearn.fill_star(70, 30, 30, cyd_telearn.colors["PINK"])
 
