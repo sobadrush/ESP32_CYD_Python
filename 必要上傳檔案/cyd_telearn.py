@@ -22,8 +22,6 @@ class CYD_Telearn:
         self.width = self.cyd.display.width
         self.height = self.cyd.display.height
         self.current_color_index = 0
-        self.top_menu_y = 40 # 製作選單時，最上方選項的 Y 座標值
-        
 
     def color565(self, r, g, b):
         """Convert RGB888 to RGB565"""
@@ -134,7 +132,6 @@ class CYD_Telearn:
     
     def double_tap(self,x, y):
         return self.cyd.double_tap(x, y)
-    
     # 顯示文字功能
     def display_text(self, text, x=10, y=10, color=None):
         if color is None:
@@ -153,7 +150,6 @@ class CYD_Telearn:
 
     def fill_circle(self, x, y, r, color):
         self.cyd.display.fill_circle(x, y, r, color)
-        
     def draw_star(self, x_center, y_center, radius, color):
         points = []
         for i in range(5):
@@ -217,10 +213,10 @@ class CYD_Telearn:
     def check_menu_touch(self, num_options):
         while True:
             x, y = self.cyd.touches()
-            x, y = self.touch_to_display(x, y) # Correct the coordinates
+            x, y = self.touch_to_display(x, y)  # Correct the coordinates
             if x and y:
                 for i in range(num_options):
-                    button_y = self.top_menu_y + i * self.top_menu_y
+                    button_y = 40 + i * 40
                     if button_y <= y <= button_y + 30:
                         return i + 1
 
@@ -229,7 +225,7 @@ class CYD_Telearn:
     
     # 問答遊戲相關函數
     def custom_shuffle(self, lst):
-        """ Implementing a simple shuffle algorithm """
+        """Implementing a simple shuffle algorithm"""
         for i in range(len(lst) - 1, 0, -1):
             j = random.randint(0, i)
             lst[i], lst[j] = lst[j], lst[i]
@@ -383,4 +379,3 @@ class CYD_Telearn:
 
         # 遞歸調用來繼續繪製圖案
         self.draw_circle_pattern(fixed_x, fixed_y, radius + increment, increment, (start_angle + change_angle) % 360, change_angle, colors, (color_index + 1) % len(colors), speed)
-        
