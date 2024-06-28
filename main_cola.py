@@ -30,6 +30,32 @@ while True:
         
     elif choice == 1:
         print("選擇 Circle")
+        cyd_telearn.clear_screen()
+        
+        while True:
+            time.sleep(0.05)
+            x, y = cyd_telearn.touches()
+
+            if x == 0 and y == 0: # 若螢幕沒有被「觸控」，x 及 y 都會是 0, 不做任何事
+                continue
+
+            x, y = cyd_telearn.touch_to_display(x, y)
+
+            # Double tap to exit
+            if cyd_telearn.double_tap(x, y):
+                break
+
+            print("Touches:", x, y)
+
+            # Prevent circles from appearing off-screen.
+            y = min(max(y, r + 1), cyd_telearn.height - (r + 1))
+            x = min(max(x, r + 1), cyd_telearn.width - (r + 1))
+
+            # Create circle
+            cyd_telearn.fill_circle(x, y, r, colors[c])
+            cyd_telearn.fill_rectangle(x, y, 10, 10, colors[c])
+            
+            c = (c + 1) % len(colors) # index 是 0,1,2，除以多少會是 0,1,2 ?
         
         
     elif choice == 2:
