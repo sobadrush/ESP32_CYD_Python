@@ -32,6 +32,11 @@ while True:
         print("選擇 Circle")
         cyd_telearn.clear_screen()
         
+        # List of color choices
+        colors = [cyd_telearn.colors["RED"], cyd_telearn.colors["GREEN"], cyd_telearn.colors["BLUE"]]
+        c = 0  # Initial color choice
+        r = 5  # Radius of circles
+        
         while True:
             time.sleep(0.05)
             x, y = cyd_telearn.touches()
