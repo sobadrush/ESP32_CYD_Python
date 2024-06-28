@@ -48,9 +48,11 @@ while True:
                 continue
 
             x, y = cyd_telearn.touch_to_display(x, y)
-
-
             print("Touches:", x, y)
+            
+            if x > 220 and y > 300:
+                print(f"Click Exit Button, escape while loop.")
+                break
 
             # Prevent circles from appearing off-screen.
             y = min(max(y, r + 1), cyd_telearn.height - (r + 1))
