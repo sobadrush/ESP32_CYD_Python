@@ -37,6 +37,9 @@ while True:
         c = 0  # Initial color choice
         r = 5  # Radius of circles
         
+        # 右下角畫一個小正方形，當作離開標記
+        cyd_telearn.fill_rectangle(220, 300, 20, 20, cyd_telearn.colors["BLUE"])
+        
         while True:
             time.sleep(0.05)
             x, y = cyd_telearn.touches()
@@ -46,9 +49,6 @@ while True:
 
             x, y = cyd_telearn.touch_to_display(x, y)
 
-            # Double tap to exit
-            if cyd_telearn.double_tap(x, y):
-                break
 
             print("Touches:", x, y)
 
