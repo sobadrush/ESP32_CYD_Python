@@ -23,3 +23,6 @@ for text in button_texts:
 while True:
     choice = cyd_telearn.check_menu_touch(len(button_texts))
     print(f"choice = {choice}")
+    
+    if choice == 3:
+        cyd_telearn.shutdown()
