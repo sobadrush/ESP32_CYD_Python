@@ -21,6 +21,7 @@ for text in button_texts:
 ###########################################
 
 while True:
+    
     choice = cyd_telearn.check_menu_touch(len(button_texts))
     print(f"choice = {choice}")
     
@@ -104,6 +105,7 @@ while True:
         
             
     # 重新顯示選單按鈕
+    cyd_telearn.clear_screen() # 避免影像殘留，執行一次清除畫面
     y = 40
     cyd_telearn.display_text("Please choose a shape:", 10, 20, cyd_telearn.colors["YELLOW"])
     for text in button_texts:
