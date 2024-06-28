@@ -68,6 +68,39 @@ while True:
     elif choice == 2:
         print("選擇 Star")
         
+        cyd_telearn.clear_screen()
+        
+        # List of color choices
+        colors = [cyd_telearn.colors["RED"], cyd_telearn.colors["GREEN"], cyd_telearn.colors["BLUE"]]
+        c = 0  # Initial color choice
+        r = 5  # Radius of circles
+        
+        # 右下角畫一個小正方形，當作離開標記
+        cyd_telearn.fill_rectangle(220, 300, 20, 20, cyd_telearn.colors["BLUE"])
+        
+        while True:
+            time.sleep(0.05)
+            x, y = cyd_telearn.touches()
+
+            if x == 0 and y == 0: # 若螢幕沒有被「觸控」，x 及 y 都會是 0, 不做任何事
+                continue
+
+            x, y = cyd_telearn.touch_to_display(x, y)
+            print("Touches:", x, y)
+            
+            if x > 220 and y > 300:
+                print(f"Click Exit Button, escape while loop.")
+                break
+
+            # Prevent circles from appearing off-screen.
+            y = min(max(y, r + 1), cyd_telearn.height - (r + 1))
+            x = min(max(x, r + 1), cyd_telearn.width - (r + 1))
+
+            # Create circle
+            cyd_telearn.draw_star(x, y, 15, colors[c])
+
+            c = (c + 1) % len(colors) # index 是 0,1,2，除以多少會是 0,1,2 ?
+        
             
     # 重新顯示選單按鈕
     y = 40
