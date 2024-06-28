@@ -26,3 +26,12 @@ while True:
     
     if choice == 3:
         cyd_telearn.shutdown()
+        
+        
+    elif choice == 1:
+        print("選擇 Circle")
+        
+        
+    elif choice == 2:
+        print("選擇 Star")
+        
