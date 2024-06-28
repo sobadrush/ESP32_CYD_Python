@@ -98,6 +98,7 @@ while True:
 
             # Create circle
             cyd_telearn.draw_star(x, y, 15, colors[c])
+            cyd_telearn.fill_star(x, y, 15 // 2, colors[c])
 
             c = (c + 1) % len(colors) # index 是 0,1,2，除以多少會是 0,1,2 ?
         
