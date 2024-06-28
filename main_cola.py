@@ -17,3 +17,9 @@ for text in button_texts:
     cyd_telearn.fill_rectangle(10, y, 220, 30, cyd_telearn.colors["BLUE"])
     cyd_telearn.display_text(text, 15, y + 10, cyd_telearn.colors["WHITE"])
     y += 40
+
+###########################################
+
+while True:
+    choice = cyd_telearn.check_menu_touch(len(button_texts))
+    print(f"choice = {choice}")
